@@ -16,16 +16,16 @@ print('transpuesta: ', mT.shape)
 print('copyF flags: ', copyF.flags['C_CONTIGUOUS'], 'F_CONTIGUOUS=', copyF.flags['F_CONTIGUOUS'])
 print('copyC flags: C_CONTIGUOS =', copyC.flags['C_CONTIGUOUS'], 'F_CONTIGUOS =', copyC.flags['F_CONTIGUOUS'] )
 
-fig= plt.figure(figsizee=(14,9))
+fig= plt.figure(figsize=(14,9))
 fig.suptitle('6 paneles', fontsize=14)
-posiciones = [
-    [0.05, 0.48, 0.45, 0.45]
-    [0.55, 0.62, 0.40, 0.33]
-    [0.05, 0.28, 0.25, 0.18]
-    [0.32, 0.28, 0.28, 0.18]
-    [0.62, 0.36, 0.33, 0.18]
-    [0.05, 0.05, 0.90, 0.18]
-]
+posiciones = (
+    [0.05, 0.48, 0.45, 0.45],
+    [0.55, 0.62, 0.40, 0.33],
+    [0.05, 0.28, 0.25, 0.18],
+    [0.32, 0.28, 0.28, 0.18],
+    [0.62, 0.36, 0.33, 0.18],
+    [0.05, 0.05, 0.90, 0.18],
+)
 
 axes =[fig.add_axes(pos) for pos in posiciones]
 data_rows = mT
@@ -41,7 +41,7 @@ ax.grid(True)
 
 ax = axes[1]
 x1 = np.arange(data_rows.shape[1])
-ax.plot(x1, data_rows[1], label = 'fila 1', s = 10)
+ax.scatter(x1, data_rows[1], label = 'fila 1', s = 10)
 ax.set_title('Scatter Fila 1')
 ax.set_xlabel('indice')
 ax.set_ylabel('valor')
@@ -50,7 +50,7 @@ ax.grid(True)
 
 ax = axes[2]
 x2 = np.arange(data_rows.shape[1])
-ax.plot(x2, data_rows[2], label = 'fila 2 bar')
+ax.bar(x2, data_rows[2], label = 'fila 2 bar')
 ax.set_title('bar plot fila 2 (120 barrras)')
 ax.set_xlabel('indice')
 ax.set_ylabel('valor')
@@ -58,7 +58,7 @@ ax.legend()
 ax.grid(True)
 
 ax = axes[3]
-ax.hist(data_rows[3], bins = 15, labe = 'fila 3 histograma')
+ax.hist(data_rows[3], bins = 15, label = 'fila 3 histograma')
 ax.set_title('histograma fila 3')
 ax.set_xlabel('valor')
 ax.set_ylabel('frecuencia')
