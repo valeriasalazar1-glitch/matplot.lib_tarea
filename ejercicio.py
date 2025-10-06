@@ -13,4 +13,6 @@ copyF = np.array(mT, order = 'F', copy = True)
 copyC = np.array(mT, order = 'C', copy = True)
 print(mT.shape)
 print('transpuesta: ', mT.shape)
-print()
+print('copyF flags: ', copyF.flags['C_CONTIGUOUS'], 'F_CONTIGUOUS=', copyF.flags['F_CONTIGUOUS'])
+print('copyC flags: C_CONTIGUOS =', copyC.flags['C_CONTIGUOUS'], 'F_CONTIGUOS =', copyC.flags['F_CONTIGUOUS'] )
+
