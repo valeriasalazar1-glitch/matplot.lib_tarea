@@ -84,3 +84,7 @@ ax.grid(True)
 
 plt.show()
 
+print('graficos de las 6 filas de la matriz transpuesta')
+for i in range(6): 
+    row = data_rows [i]
+    print(f'fila{i}: mean={row.mean():.4f}, std = {row.std():.4f}, max={row.max():.4f}')
